@@ -20,14 +20,18 @@ grad = zeros(size(theta));
 %
 
 
+difr = (X * theta) - y;
+cost = sum(difr .^ 2) / (2 * m);
+
+t2 = [0 ; theta(2:end, :)];
+
+reg = sum((t2 .^ 2)) * (lambda / (2 * m));
+
+J = cost + reg;
 
 
 
-
-
-
-
-
+grad = (X' * difr + lambda * t2) / m;
 
 
 % =========================================================================
