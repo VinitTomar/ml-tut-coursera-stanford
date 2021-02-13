@@ -21,10 +21,24 @@ idx = zeros(size(X,1), 1);
 % Note: You can use a for-loop over the examples to compute this.
 %
 
+m = size(X,1);
 
+for i = 1:m
 
+    d = ones(size(centroids, 1),1) * inf;
+    p = X(i,:);
 
+    for j = 1:K;
+        c = centroids(j,:);
+        dif = c - p;
+        dif = dif .^ 2;
+        sm = sum(dif);
+        d(j) = sqrt(sm);
+    end
+    
+    [~, idx(i)] = min(d'); 
 
+end
 
 
 % =============================================================
