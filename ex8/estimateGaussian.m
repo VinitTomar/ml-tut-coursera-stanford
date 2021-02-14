@@ -23,10 +23,12 @@ sigma2 = zeros(n, 1);
 
 
 
+mu = sum(X) / m;
 
+dif = X(1:end, :) - mu;
+dif = dif .^ 2;
 
-
-
+sigma2 = sum(dif) / m;
 
 
 
