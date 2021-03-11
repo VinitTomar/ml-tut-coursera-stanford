@@ -31,6 +31,10 @@ for iter = 1:num_iters
         theta(j) = theta_prev(j)-(alpha*deriv);
     end
 
+    if iter > 0 && iter < 11
+        fprintf("theta %f, %f, %f\n",theta(1),theta(2),theta(3))
+    end
+
     % ============================================================
 
     % Save the cost J in every iteration
